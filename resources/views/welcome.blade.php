@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
     <!-- DotLottie Player Component -->
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
@@ -21,6 +22,7 @@
                 extend: {
                     fontFamily: {
                         sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+                        "display": ["'Pacifico'", "cursive"],
                     },
                     colors: {
                         dark: '#0e1015',
@@ -162,21 +164,38 @@
                             <div class="absolute -top-10 -left-10 w-56 h-56 bg-[#A5E7FF] rounded-full filter blur-3xl opacity-80"></div>
                             <div class="absolute top-10 -right-10 w-56 h-56 bg-[#D794FF] rounded-full filter blur-3xl opacity-75"></div>
                             <div class="absolute -bottom-8 left-10 w-48 h-40 bg-[#86EFAC] rounded-full filter blur-2xl opacity-60"></div>
+
+                            <!-- Abstract Anime.js Elements -->
+                            <!-- Abstract Element 1: Glowing Green Ring -->
+                            <svg class="anime-shape anime-ring absolute top-12 left-12 w-14 h-14 opacity-70" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="40" stroke="#4ADE80" stroke-width="6" stroke-dasharray="10 6" fill="none" />
+                            </svg>
+                            <!-- Abstract Element 2: Soft Rotating Diamond -->
+                            <div class="anime-shape anime-diamond absolute bottom-12 right-12 w-8 h-8 border-2 border-emerald-400 rounded-lg opacity-60"></div>
+                            <!-- Abstract Element 3: Floating Green Capsule -->
+                            <div class="anime-shape anime-capsule absolute top-1/3 right-6 w-5 h-12 bg-gradient-to-br from-teal-400 to-emerald-500 rounded-full opacity-50 shadow-lg shadow-emerald-200/50"></div>
+                            <!-- Abstract Element 4: Grid of dots -->
+                            <svg class="anime-shape anime-grid absolute bottom-16 left-6 w-16 h-16 opacity-30" viewBox="0 0 100 100">
+                                <pattern id="dotGrid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <circle cx="3" cy="3" r="3" fill="#10B981" />
+                                </pattern>
+                                <rect width="100" height="100" fill="url(#dotGrid)" />
+                            </svg>
+                            <!-- Abstract Element 5: Small Floating Bubble -->
+                            <div class="anime-shape anime-bubble absolute top-1/2 left-4 w-6 h-6 bg-emerald-300 rounded-full opacity-40 blur-[1px]"></div>
                         </div>
 
                         <!-- Illustration 2 -->
                         <div class="relative z-10 w-[88%] max-w-[310px] h-[86%] flex items-center justify-center pointer-events-none">
-                            <img src="{{ asset('assets/img/homebase-hijau.png') }}" alt="Kesalehan Personal" class="max-w-full max-h-full object-contain">
+                            <h1 class="absolute z-0" style="font-family: Pacifico, cursive; font-size: 200px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #ffffffff;">Homebase Hijau</h1>
+                            <img src="{{ asset('assets/img/homebase-hijau.png') }}" alt="Kesalehan Personal" class="relative z-10 max-w-full max-h-full object-contain">
                         </div>
                     </div>
 
                     <!-- Slide Text Details -->
                     <div class="w-full h-[38%] flex flex-col justify-center px-7 bg-white">
-                        <h2 class="text-[25px] sm:text-[27px] font-bold text-[#0D0E11] leading-[1.2] tracking-tight">
-                            Kesalehan Personal
-                        </h2>
                         <p class="mt-2.5 text-[14px] text-[#656E7B] leading-relaxed font-normal">
-                            Membangun fondasi ibadah, akhlak dan kedisiplinan diri siswa secara individu.
+                            Filosofi badak seringkali menjadi inspirasi untuk menggambarkan karakter seseorang. Meskipun badak sering dianggap sebagai hewan yang garang, ada banyak sifat positif darinya yang bisa diterapkan dalam kehidupan. Dengan demikian, filosofi badak dapat menggambarkan karakter seseorang yang teguh, mandiri, berani, namun tetap tenang dan bijaksana. Filosofi ini mengajarkan bahwa kekuatan sejati tidak selalu terlihat dari luar, tetapi dari ketahanan dan kemampuan untuk menghadapi hidup dengan kepala dingin.
                         </p>
                     </div>
                 </div>
@@ -436,6 +455,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Anime.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
     <!-- Touch Drag & Carousel Script -->
     <script>
