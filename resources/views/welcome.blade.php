@@ -108,6 +108,70 @@
             background-color: #0D0E11;
             transform: scale(1.3);
         }
+
+        /* Sleek scrollbar for text detail */
+        .scroll-touch {
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+            scrollbar-width: thin;
+            scrollbar-color: #E2E8F0 transparent;
+        }
+        .scroll-touch::-webkit-scrollbar {
+            width: 4px;
+        }
+        .scroll-touch::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .scroll-touch::-webkit-scrollbar-thumb {
+            background-color: #CBD5E1;
+            border-radius: 9999px;
+        }
+        .scroll-touch::-webkit-scrollbar-thumb:hover {
+            background-color: #94A3B8;
+        }
+
+        /* Kinetic Typography Effect (as in reference image) */
+        .kinetic-container {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            overflow: hidden;
+            pointer-events: none;
+            user-select: none;
+        }
+        .kinetic-row {
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            white-space: nowrap;
+        }
+        .kinetic-track {
+            display: flex;
+            width: max-content;
+            will-change: transform;
+        }
+        .kinetic-text {
+            font-family: 'Pacifico', cursive;
+            font-weight: 700;
+            font-size: 32px;
+            letter-spacing: -0.02em;
+            /* text-transform: uppercase; */
+            line-height: 1;
+            padding-right: 1.25rem;
+            display: inline-block;
+        }
+        .kinetic-outline {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(16, 185, 129, 0.45);
+        }
+        .kinetic-solid {
+            color: #10B981;
+            -webkit-text-stroke: 0px;
+            text-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+        }
     </style>
 </head>
 <body class="h-full flex items-center justify-center bg-[#ECEFF4] md:p-6 select-none">
@@ -146,11 +210,11 @@
                     </div>
 
                     <!-- Slide Text Details -->
-                    <div class="w-full h-[38%] flex flex-col justify-center px-7 bg-white">
-                        <h2 class="text-[25px] sm:text-[27px] font-bold text-[#0D0E11] leading-[1.2] tracking-tight">
+                    <div class="w-full h-[38%] flex flex-col justify-start overflow-y-auto scroll-touch px-7 py-4 bg-white select-text">
+                        <h2 class="text-[25px] sm:text-[27px] font-bold text-[#0D0E11] leading-[1.2] tracking-tight shrink-0">
                             Student Discipline Code
                         </h2>
-                        <p class="mt-2.5 text-[14px] text-[#656E7B] leading-relaxed font-normal">
+                        <p class="mt-2 text-[14px] text-[#656E7B] leading-relaxed font-normal">
                             merupakan serangkaian peraturan yang mengikat dan bervariasi konsekuensi sesuai dengan beratringannya tindakan yang dilakukan murid. Konsekuensi yang diberlakukan menggunakan sistem star point.
                         </p>
                     </div>
@@ -185,16 +249,64 @@
                             <div class="anime-shape anime-bubble absolute top-1/2 left-4 w-6 h-6 bg-emerald-300 rounded-full opacity-40 blur-[1px]"></div>
                         </div>
 
-                        <!-- Illustration 2 -->
+                        <!-- Kinetic Typography Background (Like Reference Image) -->
+                        <div class="kinetic-container absolute inset-0 z-0">
+                            <!-- Row 1: Outline (Left) -->
+                            <div class="kinetic-row kinetic-move-left opacity-30">
+                                <div class="kinetic-track">
+                                    <span class="kinetic-text kinetic-outline">Homebase Hijau &bull; Homebase Hijau &bull; Homebase Hijau &bull;&nbsp;</span>
+                                    <span class="kinetic-text kinetic-outline">Homebase Hijau &bull; Homebase Hijau &bull; Homebase Hijau &bull;&nbsp;</span>
+                                </div>
+                            </div>
+                            <!-- Row 2: Outline (Right) -->
+                            <div class="kinetic-row kinetic-move-right opacity-45">
+                                <div class="kinetic-track">
+                                    <span class="kinetic-text kinetic-outline">Homebase Hijau &bull; Homebase Hijau &bull; Homebase Hijau &bull;&nbsp;</span>
+                                    <span class="kinetic-text kinetic-outline">Homebase Hijau &bull; Homebase Hijau &bull; Homebase Hijau &bull;&nbsp;</span>
+                                </div>
+                            </div>
+                            <!-- Row 3: Solid Prominent Text (Left) -->
+                            <div class="kinetic-row kinetic-move-left opacity-90">
+                                <div class="kinetic-track">
+                                    <span class="kinetic-text kinetic-solid">Homebase Hijau &bull; Homebase Hijau &bull; Homebase Hijau &bull;&nbsp;</span>
+                                    <span class="kinetic-text kinetic-solid">Homebase Hijau &bull; Homebase Hijau &bull; Homebase Hijau &bull;&nbsp;</span>
+                                </div>
+                            </div>
+                            <!-- Row 4: Outline (Right) -->
+                            <div class="kinetic-row kinetic-move-right opacity-50">
+                                <div class="kinetic-track">
+                                    <span class="kinetic-text kinetic-outline">Homebase Hijau &bull; Homebase Hijau &bull; Homebase Hijau &bull;&nbsp;</span>
+                                    <span class="kinetic-text kinetic-outline">Homebase Hijau &bull; Homebase Hijau &bull; Homebase Hijau &bull;&nbsp;</span>
+                                </div>
+                            </div>
+                            <!-- Row 5: Outline (Left) -->
+                            <div class="kinetic-row kinetic-move-left opacity-35">
+                                <div class="kinetic-track">
+                                    <span class="kinetic-text kinetic-outline">Homebase Hijau &bull; Homebase Hijau &bull; Homebase Hijau &bull;&nbsp;</span>
+                                    <span class="kinetic-text kinetic-outline">Homebase Hijau &bull; Homebase Hijau &bull; Homebase Hijau &bull;&nbsp;</span>
+                                </div>
+                            </div>
+                            <!-- Row 6: Outline (Right) -->
+                            <div class="kinetic-row kinetic-move-right opacity-25">
+                                <div class="kinetic-track">
+                                    <span class="kinetic-text kinetic-outline">Homebase Hijau &bull; Homebase Hijau &bull; Homebase Hijau &bull;&nbsp;</span>
+                                    <span class="kinetic-text kinetic-outline">Homebase Hijau &bull; Homebase Hijau &bull; Homebase Hijau &bull;&nbsp;</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Illustration 2 (Mascot in Foreground) -->
                         <div class="relative z-10 w-[88%] max-w-[310px] h-[86%] flex items-center justify-center pointer-events-none">
-                            <h1 class="absolute z-0" style="font-family: Pacifico, cursive; font-size: 200px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: #ffffffff;">Homebase Hijau</h1>
-                            <img src="{{ asset('assets/img/homebase-hijau.png') }}" alt="Kesalehan Personal" class="relative z-10 max-w-full max-h-full object-contain">
+                            <img src="{{ asset('assets/img/homebase-hijau.png') }}" alt="Kesalehan Personal" class="anime-rhino-img relative z-10 max-w-full max-h-full object-contain filter drop-shadow-[0_12px_24px_rgba(16,185,129,0.2)]">
                         </div>
                     </div>
 
-                    <!-- Slide Text Details -->
-                    <div class="w-full h-[38%] flex flex-col justify-center px-7 bg-white">
-                        <p class="mt-2.5 text-[14px] text-[#656E7B] leading-relaxed font-normal">
+                    <!-- Slide Text Details (Scrollable) -->
+                    <div class="w-full h-[38%] flex flex-col justify-start overflow-y-auto scroll-touch px-7 py-4 bg-white select-text">
+                        <h2 class="text-[24px] sm:text-[26px] font-bold text-[#0D0E11] leading-[1.2] tracking-tight shrink-0">
+                            Homebase Hijau
+                        </h2>
+                        <p class="mt-2 text-[14px] text-[#656E7B] leading-relaxed font-normal">
                             Filosofi badak seringkali menjadi inspirasi untuk menggambarkan karakter seseorang. Meskipun badak sering dianggap sebagai hewan yang garang, ada banyak sifat positif darinya yang bisa diterapkan dalam kehidupan. Dengan demikian, filosofi badak dapat menggambarkan karakter seseorang yang teguh, mandiri, berani, namun tetap tenang dan bijaksana. Filosofi ini mengajarkan bahwa kekuatan sejati tidak selalu terlihat dari luar, tetapi dari ketahanan dan kemampuan untuk menghadapi hidup dengan kepala dingin.
                         </p>
                     </div>
@@ -261,11 +373,11 @@
                     </div>
 
                     <!-- Slide Text Details -->
-                    <div class="w-full h-[38%] flex flex-col justify-center px-7 bg-white">
-                        <h2 class="text-[25px] sm:text-[27px] font-bold text-[#0D0E11] leading-[1.2] tracking-tight">
+                    <div class="w-full h-[38%] flex flex-col justify-start overflow-y-auto scroll-touch px-7 py-4 bg-white select-text">
+                        <h2 class="text-[25px] sm:text-[27px] font-bold text-[#0D0E11] leading-[1.2] tracking-tight shrink-0">
                             Kesalehan Sosial
                         </h2>
-                        <p class="mt-2.5 text-[14px] text-[#656E7B] leading-relaxed font-normal">
+                        <p class="mt-2 text-[14px] text-[#656E7B] leading-relaxed font-normal">
                             Menumbuhkan empati, kepedulian, dan sikap saling menghargai antar sesama.
                         </p>
                     </div>
@@ -317,11 +429,11 @@
                     </div>
 
                     <!-- Slide Text Details -->
-                    <div class="w-full h-[38%] flex flex-col justify-center px-7 bg-white">
-                        <h2 class="text-[25px] sm:text-[27px] font-bold text-[#0D0E11] leading-[1.2] tracking-tight">
+                    <div class="w-full h-[38%] flex flex-col justify-start overflow-y-auto scroll-touch px-7 py-4 bg-white select-text">
+                        <h2 class="text-[25px] sm:text-[27px] font-bold text-[#0D0E11] leading-[1.2] tracking-tight shrink-0">
                             Kesalehan Kealamiahan
                         </h2>
-                        <p class="mt-2.5 text-[14px] text-[#656E7B] leading-relaxed font-normal">
+                        <p class="mt-2 text-[14px] text-[#656E7B] leading-relaxed font-normal">
                             Membentuk kepedulian terhadap lingkungan dan alam sekitar melalui pembelajaran langsung.
                         </p>
                     </div>
@@ -384,11 +496,11 @@
                     </div>
 
                     <!-- Slide Text Details -->
-                    <div class="w-full h-[38%] flex flex-col justify-center px-7 bg-white">
-                        <h2 class="text-[25px] sm:text-[27px] font-bold text-[#0D0E11] leading-[1.2] tracking-tight">
+                    <div class="w-full h-[38%] flex flex-col justify-start overflow-y-auto scroll-touch px-7 py-4 bg-white select-text">
+                        <h2 class="text-[25px] sm:text-[27px] font-bold text-[#0D0E11] leading-[1.2] tracking-tight shrink-0">
                             Kesalehan Kebangsaan
                         </h2>
-                        <p class="mt-2.5 text-[14px] text-[#656E7B] leading-relaxed font-normal">
+                        <p class="mt-2 text-[14px] text-[#656E7B] leading-relaxed font-normal">
                             Mengembangkan potensi intelektual dan rasa ingin tahu siswa dalam bidang akademik.
                         </p>
                     </div>
@@ -418,13 +530,13 @@
                 </button>
             </div>
 
-            <!-- Persistent Action Buttons -->
-            <div class="flex flex-col gap-3">
-                <button onclick="handleCreateWallet()" class="w-full py-4 bg-[#0D0E11] hover:bg-black active:scale-[0.985] text-white text-[15px] font-semibold rounded-full shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3)] transition-all cursor-pointer">
-                    Create new wallet
+            <!-- Persistent Action Buttons (Side-by-side Next & Skip) -->
+            <div class="flex items-center gap-3 w-full">
+                <button onclick="handleSkip()" id="btn-skip" class="flex-1 py-3.5 px-5 bg-[#F3F4F6] hover:bg-[#E5E7EB] active:scale-[0.985] text-[#4B5563] hover:text-[#111827] text-[15px] font-semibold rounded-full transition-all cursor-pointer text-center">
+                    Skip
                 </button>
-                <button onclick="handleImportWallet()" class="w-full py-1 text-center text-[14px] font-medium text-[#1F2937] hover:text-black active:opacity-75 transition-colors cursor-pointer">
-                    I already have a wallet
+                <button onclick="handleNext()" id="btn-next" class="flex-1 py-3.5 px-5 bg-[#0D0E11] hover:bg-black active:scale-[0.985] text-white text-[15px] font-semibold rounded-full shadow-[0_8px_20px_-4px_rgba(0,0,0,0.25)] transition-all cursor-pointer text-center">
+                    Next
                 </button>
             </div>
         </div>
@@ -445,12 +557,12 @@
             <h3 id="modal-title" class="text-xl font-bold text-gray-900 mb-2">Create New Wallet</h3>
             <p id="modal-desc" class="text-sm text-gray-500 mb-6">Generating your secure 12-word recovery phrase...</p>
 
-            <div class="flex flex-col gap-2.5">
-                <button onclick="closeModal()" class="w-full py-3.5 bg-black text-white font-semibold rounded-full hover:bg-gray-800 transition">
-                    Continue
-                </button>
-                <button onclick="closeModal()" class="w-full py-2.5 text-sm font-medium text-gray-500 hover:text-gray-900 transition">
+            <div class="flex items-center gap-3 w-full">
+                <button onclick="closeModal()" class="flex-1 py-3.5 bg-gray-100 text-gray-700 font-semibold rounded-full hover:bg-gray-200 active:scale-[0.985] transition text-[15px] cursor-pointer">
                     Cancel
+                </button>
+                <button onclick="closeModal()" class="flex-1 py-3.5 bg-[#0D0E11] text-white font-semibold rounded-full hover:bg-black active:scale-[0.985] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.25)] transition text-[15px] cursor-pointer">
+                    Continue
                 </button>
             </div>
         </div>
@@ -511,6 +623,25 @@
                         }
                     }
                 });
+            }
+
+            const nextBtn = document.getElementById('btn-next');
+            const skipBtn = document.getElementById('btn-skip');
+            if (nextBtn) {
+                if (currentSlide === getTotalSlides() - 1) {
+                    nextBtn.textContent = 'Get Started';
+                } else {
+                    nextBtn.textContent = 'Next';
+                }
+            }
+            if (skipBtn) {
+                if (currentSlide === getTotalSlides() - 1) {
+                    skipBtn.style.opacity = '0';
+                    skipBtn.style.pointerEvents = 'none';
+                } else {
+                    skipBtn.style.opacity = '1';
+                    skipBtn.style.pointerEvents = 'auto';
+                }
             }
         }
 
@@ -614,6 +745,18 @@
             if (e.key === 'ArrowLeft') prevSlide();
         });
 
+        window.handleSkip = function() {
+            window.location.href = "{{ Route::has('login') ? route('login') : '/login' }}";
+        };
+
+        window.handleNext = function() {
+            if (currentSlide < getTotalSlides() - 1) {
+                nextSlide();
+            } else {
+                handleCreateWallet();
+            }
+        };
+
         // Modal Handlers
         const modal = document.getElementById('action-modal');
         const modalCard = document.getElementById('modal-card');
@@ -644,6 +787,104 @@
 
         // Initialize position on load
         setPositionByIndex();
+
+        // ==================== Anime.js Animations ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof anime !== 'undefined') {
+                // 1. Rotating Ring & Dashoffset pulse
+                anime({
+                    targets: '.anime-ring',
+                    rotate: '1turn',
+                    duration: 14000,
+                    easing: 'linear',
+                    loop: true
+                });
+
+                anime({
+                    targets: '.anime-ring circle',
+                    strokeDashoffset: [anime.setDashoffset, 0],
+                    easing: 'easeInOutSine',
+                    duration: 3500,
+                    direction: 'alternate',
+                    loop: true
+                });
+
+                // 2. Rotating & Pulsing Diamond
+                anime({
+                    targets: '.anime-diamond',
+                    rotate: [0, 90, 180, 270, 360],
+                    translateY: [-6, 6, -6],
+                    scale: [0.9, 1.15, 0.9],
+                    duration: 7000,
+                    easing: 'easeInOutQuad',
+                    direction: 'alternate',
+                    loop: true
+                });
+
+                // 3. Floating Capsule
+                anime({
+                    targets: '.anime-capsule',
+                    translateY: [-10, 10],
+                    translateX: [-4, 4],
+                    rotate: [-12, 12],
+                    duration: 4500,
+                    easing: 'easeInOutSine',
+                    direction: 'alternate',
+                    loop: true
+                });
+
+                // 4. Dot Grid Scale & Opacity Breathe
+                anime({
+                    targets: '.anime-grid',
+                    scale: [0.95, 1.1, 0.95],
+                    opacity: [0.25, 0.55, 0.25],
+                    duration: 5500,
+                    easing: 'easeInOutSine',
+                    direction: 'alternate',
+                    loop: true
+                });
+
+                // 5. Floating Bubble
+                anime({
+                    targets: '.anime-bubble',
+                    translateY: [-14, 14],
+                    translateX: [-6, 6],
+                    scale: [0.75, 1.25, 0.75],
+                    duration: 4000,
+                    easing: 'easeInOutSine',
+                    direction: 'alternate',
+                    loop: true
+                });
+
+                // 6. Floating Rhino Mascot
+                anime({
+                    targets: '.anime-rhino-img',
+                    translateY: [-6, 6],
+                    rotate: [-1.5, 1.5],
+                    duration: 3200,
+                    easing: 'easeInOutSine',
+                    direction: 'alternate',
+                    loop: true
+                });
+
+                // 7. Kinetic Typography Infinite Marquee Animations
+                anime({
+                    targets: '.kinetic-move-left .kinetic-track',
+                    translateX: ['0%', '-50%'],
+                    duration: 16000,
+                    easing: 'linear',
+                    loop: true
+                });
+
+                anime({
+                    targets: '.kinetic-move-right .kinetic-track',
+                    translateX: ['-50%', '0%'],
+                    duration: 18000,
+                    easing: 'linear',
+                    loop: true
+                });
+            }
+        });
     </script>
 </body>
 </html>
